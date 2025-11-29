@@ -7,6 +7,13 @@
 
 Uma aplicação completa de rede social construída com **FastAPI** e **Neo4j**, demonstrando o poder de bancos de dados de grafos para gerenciar relacionamentos complexos entre pessoas.
 
+
+<img width="1479" height="882" alt="image" src="https://github.com/user-attachments/assets/955a0a03-b4ea-4a22-9d1b-f6af121dfac3" />
+
+<img width="1039" height="528" alt="image" src="https://github.com/user-attachments/assets/39135c88-1fc2-4124-8619-80ae5950564b" />
+
+
+
 ## ✨ Funcionalidades
 
 ### 🔗 Gestão de Relacionamentos
