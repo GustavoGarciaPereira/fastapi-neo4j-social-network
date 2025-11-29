@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rede Social · FastAPI + Neo4j</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <nav class="topbar glass">
+        <div class="brand">
+          <i class="fas fa-atom"></i>
+          <div>
+            <h1>Rede Social</h1>
+            <span>FastAPI · Neo4j</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button id="theme-toggle" class="icon-btn" title="Alternar tema">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="pill-btn">
+            <i class="fas fa-plus"></i> Nova conexão
+          </button>
+        </div>
+      </nav>
+
+      <main class="dashboard-grid">
+        <section class="stats-panel glass">
+          <header>
+            <div>
+              <h2>Visão Geral</h2>
+              <p>Dados em tempo real da sua rede</p>
+            </div>
+            <button class="icon-btn" onclick="carregarEstatisticas()">
+              <i class="fas fa-rotate"></i>
+            </button>
+          </header>
+          <div id="stats-content" class="stats-grid skeleton"></div>
+        </section>
+
+        <section class="content-grid">
+          <aside class("sidebar">
+            <div class="card glass">
+              <header>
+                <h3><i class="fas fa-user-plus"></i> Nova Pessoa</h3>
+              </header>
+              <form id="person-form" class="form-grid">
+                <label>
+                  Nome
+                  <input type="text" id="nome" name="nome" required />
+                </label>
+                <label>
+                  Idade
+                  <input type="number" id="idade" name="idade" required />
+                </label>
+                <label>
+                  Cidade
+                  <input type="text" id="cidade" name="cidade" />
+                </label>
+                <label>
+                  Interesses
+                  <input
+                    type="text"
+                    id="interesses"
+                    name="interesses"
+                    placeholder="tecnologia, música"
+                  />
+                </label>
+                <button type="submit" class="primary-btn">
+                  <i class="fas fa-paper-plane"></i> Salvar
+                </button>
+              </form>
+            </div>
+
+            <div class="card glass">
+              <header>
+                <h3><i class="fas fa-magnifying-glass"></i> Buscar</h3>
+              </header>
+              <div class="search-box">
+                <input
+                  type="text"
+                  id="interesse-busca"
+                  placeholder="Digite um interesse"
+                />
+                <button class="icon-btn" onclick="buscarPorInteresse()">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+              <div id="resultados-busca" class="search-results"></div>
+            </div>
+          </aside>
+
+          <section class="people-panel glass">
+            <header>
+              <div>
+                <h3><i class="fas fa-users"></i> Pessoas</h3>
+                <p>Selecione para ver detalhes e conexões</p>
+              </div>
+              <button class="secondary-btn" onclick="carregarPessoas()">
+                <i class="fas fa-sync-alt"></i> Atualizar
+              </button>
+            </header>
+            <div id="pessoas-list" class="pessoas-grid skeleton"></div>
+          </section>
+        </section>
+
+        <section id="pessoa-detalhes" class="drawer glass hidden">
+          <header>
+            <h3 id="detalhes-titulo">Detalhes da Pessoa</h3>
+            <button class="icon-btn" onclick="fecharDetalhes()">
+              <i class="fas fa-xmark"></i>
+            </button>
+          </header>
+          <div id="detalhes-conteudo"></div>
+        </section>
+
+        <section id="rede-social" class="drawer glass hidden">
+          <header>
+            <h3 id="rede-titulo">Rede Social</h3>
+            <button class="icon-btn" onclick="fecharRede()">
+              <i class="fas fa-xmark"></i>
+            </button>
+          </header>
+          <div id="rede-conteudo" class="rede-container"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="loading" class="backdrop hidden">
+      <div class="loader-card glass">
+        <span class="spinner"></span>
+        <p>Sincronizando dados...</p>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

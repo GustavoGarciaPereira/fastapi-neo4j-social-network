@@ -1,0 +1,6 @@
+.env.docker
+.env
+.vscode/settings.json
+app/__pycache__/*.*.pyc
+frontend/vite.config.js
+frontend/package.json
